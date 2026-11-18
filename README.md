@@ -1,0 +1,286 @@
+﻿# ðŸ¤– AgentKit WhatsApp Bot
+
+Bot do WhatsApp com IA da OpenAI usando a biblioteca [whatsapp-web.js](https://wwebjs.dev/).
+
+## âœ¨ Funcionalidades
+
+- ðŸ¤– **Respostas automÃ¡ticas** usando inteligÃªncia artificial da OpenAI
+- ðŸ“± **Interface WhatsApp** nativa atravÃ©s do WhatsApp Web
+- ðŸ”„ **HistÃ³rico de conversas** mantido por chat
+- ðŸŽ¯ **Comandos especiais** para controle do bot
+- ðŸ” **AutenticaÃ§Ã£o segura** com QR Code
+- ðŸ“Š **Logs detalhados** para monitoramento
+- ðŸ›¡ï¸ **Tratamento de erros** robusto
+
+## ðŸš€ InstalaÃ§Ã£o
+
+### PrÃ©-requisitos
+
+- Node.js 18+ 
+- NPM ou Yarn
+- Conta OpenAI com API Key
+
+### Passos
+
+1. **Clone o repositÃ³rio:**
+```bash
+git clone https://github.com/inematds/whatsapp-agentkit
+cd whatsapp-agentkit
+```
+
+2. **Instale as dependÃªncias:**
+```bash
+npm install
+```
+
+3. **Configure a API Key da OpenAI:**
+   - Crie um arquivo `.env` na raiz do projeto
+   - Adicione sua chave da OpenAI:
+```env
+OPENAI_API_KEY=sua_chave_da_openai_aqui
+WORFLOW_ID=seu_workflow_aqui
+```
+
+4. **Compile o TypeScript:**
+```bash
+npm run build
+```
+
+## ðŸŽ¯ Como Usar
+
+### Iniciar o Bot
+
+#### ðŸªŸ Windows - Usando arquivos .bat (Recomendado)
+
+Basta dar duplo clique nos arquivos:
+
+- **`start_dev.bat`** - Inicia em modo desenvolvimento
+- **`start_prod.bat`** - Compila e inicia em modo produÃ§Ã£o
+
+#### ðŸ’» Via linha de comando
+
+```bash
+# Modo desenvolvimento (TypeScript)
+npm run dev
+
+# Modo produÃ§Ã£o (JavaScript compilado)
+npm start
+```
+
+### Primeira ExecuÃ§Ã£o
+
+1. **Execute o bot:**
+```bash
+npm run dev
+```
+
+2. **Escaneie o QR Code:**
+   - O bot exibirÃ¡ um QR Code no terminal
+   - Abra o WhatsApp no seu celular
+   - VÃ¡ em ConfiguraÃ§Ãµes > Dispositivos conectados
+   - Toque em "Conectar um dispositivo"
+   - Escaneie o QR Code
+
+3. **Pronto!** O bot estarÃ¡ funcionando e responderÃ¡ Ã s mensagens
+
+## ðŸ“± Comandos DisponÃ­veis
+
+| Comando | DescriÃ§Ã£o |
+|---------|-----------|
+| `!help` ou `!ajuda` | Mostra a lista de comandos |
+| `!clear` ou `!limpar` | Limpa o histÃ³rico da conversa |
+| `!status` | Mostra o status do bot |
+| `!ping` | Testa se o bot estÃ¡ funcionando |
+
+## ðŸ”§ ConfiguraÃ§Ã£o
+
+### VariÃ¡veis de Ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```env
+# ConfiguraÃ§Ã£o da OpenAI
+OPENAI_API_KEY=sua_chave_da_openai_aqui
+
+# ConfiguraÃ§Ã£o do Bot
+BOT_NAME=AgentKit WhatsApp Bot
+BOT_DESCRIPTION=Bot do WhatsApp com IA da OpenAI
+
+# ConfiguraÃ§Ã£o do Ambiente
+NODE_ENV=development
+```
+
+### PersonalizaÃ§Ã£o
+
+Edite o arquivo `config.ts` para personalizar:
+
+- **Modelo da OpenAI**: Altere o modelo usado
+- **Temperatura**: Controle a criatividade das respostas
+- **MÃ¡ximo de tokens**: Limite o tamanho das respostas
+- **HistÃ³rico**: Quantas mensagens manter na memÃ³ria
+
+## ðŸ“ Estrutura do Projeto
+
+```
+whatsapp-agentkit/
+â”œâ”€â”€ src/
+â”‚   â”œâ”€â”€ bot.ts              # Bot principal do WhatsApp
+â”‚   â”œâ”€â”€ openai-simple.ts    # IntegraÃ§Ã£o com a API da OpenAI
+â”‚   â””â”€â”€ index.ts            # Arquivo de entrada
+â”œâ”€â”€ dist/                   # Arquivos compilados (gerado automaticamente)
+â”œâ”€â”€ session/                # SessÃ£o do WhatsApp (gerado automaticamente)
+â”œâ”€â”€ start_dev.bat           # ðŸªŸ Iniciar em modo desenvolvimento
+â”œâ”€â”€ start_prod.bat          # ðŸªŸ Iniciar em modo produÃ§Ã£o
+â”œâ”€â”€ package.json            # DependÃªncias e scripts
+â”œâ”€â”€ tsconfig.json           # ConfiguraÃ§Ã£o do TypeScript
+â”œâ”€â”€ .env.example            # Exemplo de variÃ¡veis de ambiente
+â”œâ”€â”€ README.md               # Este arquivo
+â””â”€â”€ RELATORIO_SISTEMA.md    # DocumentaÃ§Ã£o tÃ©cnica completa
+```
+
+## ðŸ› ï¸ Scripts DisponÃ­veis
+
+```bash
+# Desenvolvimento
+npm run dev          # Executa em modo desenvolvimento
+
+# ProduÃ§Ã£o
+npm run build        # Compila TypeScript para JavaScript
+npm start           # Executa versÃ£o compilada
+
+# Testes
+npm test            # Executa testes (quando implementados)
+```
+
+## ðŸ”’ SeguranÃ§a
+
+- âœ… **SessÃ£o local**: Dados de autenticaÃ§Ã£o armazenados localmente
+- âœ… **API Key segura**: Chave da OpenAI em variÃ¡veis de ambiente
+- âœ… **Logs controlados**: InformaÃ§Ãµes sensÃ­veis nÃ£o sÃ£o logadas
+- âœ… **Tratamento de erros**: Falhas nÃ£o expÃµem dados internos
+
+## ðŸ› SoluÃ§Ã£o de Problemas
+
+### Bot nÃ£o conecta
+- Verifique se o Node.js estÃ¡ na versÃ£o 18+
+- Confirme se a API Key da OpenAI estÃ¡ correta
+- Tente deletar a pasta `session/` e reconectar
+
+### QR Code nÃ£o aparece
+- Verifique se o `qrcode-terminal` estÃ¡ instalado
+- Execute `npm install` novamente
+
+### Respostas nÃ£o funcionam
+- Confirme se a API Key da OpenAI tem crÃ©ditos
+- Verifique os logs para erros especÃ­ficos
+- Teste com `!ping` para verificar se o bot estÃ¡ ativo
+
+### Erro de compilaÃ§Ã£o
+- Execute `npm run build` para ver erros detalhados
+- Verifique se todas as dependÃªncias estÃ£o instaladas
+
+## ðŸ“Š Logs
+
+O bot gera logs detalhados para monitoramento:
+
+```
+ðŸš€ Iniciando bot AgentKit WhatsApp...
+ðŸ“± QR Code recebido! Escaneie com seu WhatsApp:
+âœ… Cliente WhatsApp estÃ¡ pronto!
+ðŸ¤– Bot AgentKit iniciado com sucesso!
+ðŸ“± Aguardando mensagens...
+ðŸ“± Mensagem recebida de JoÃ£o: OlÃ¡!
+ðŸ¤– Resposta enviada: OlÃ¡! Como posso ajudÃ¡-lo hoje?
+```
+
+## ðŸ¤– Desenvolvimento com IA
+
+Este projeto foi desenvolvido com assistÃªncia de IA e pode ser facilmente melhorado usando:
+
+### Claude Code
+Ferramenta oficial da Anthropic para desenvolvimento assistido por IA.
+
+```bash
+# Instale o Claude Code
+npm install -g @anthropic/claude-code
+
+# Ou use via VS Code Extension
+# https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code
+```
+
+**Comandos Ãºteis com Claude Code:**
+- `/help` - Ajuda sobre comandos disponÃ­veis
+- `/review` - Revisar cÃ³digo
+- `/optimize` - Otimizar performance
+- `/test` - Gerar testes automatizados
+- `/docs` - Gerar documentaÃ§Ã£o
+
+### GitHub Copilot
+Alternativa para desenvolvimento assistido por IA.
+
+```bash
+# Use via VS Code Extension
+# https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+```
+
+### ðŸ’¡ Dicas para usar IA no projeto:
+
+1. **Adicionar novas funcionalidades**
+   ```
+   "Adicione suporte para mensagens de Ã¡udio"
+   "Implemente rate limiting por usuÃ¡rio"
+   ```
+
+2. **Melhorar cÃ³digo existente**
+   ```
+   "Otimize o gerenciamento de histÃ³rico"
+   "Adicione testes unitÃ¡rios para bot.ts"
+   ```
+
+3. **Debugar problemas**
+   ```
+   "Por que o bot nÃ£o estÃ¡ respondendo em grupos?"
+   "Como posso reduzir o uso de tokens da OpenAI?"
+   ```
+
+4. **DocumentaÃ§Ã£o**
+   ```
+   "Gere documentaÃ§Ã£o JSDoc para todas as funÃ§Ãµes"
+   "Crie um guia de contribuiÃ§Ã£o"
+   ```
+
+## ðŸ¤ ContribuiÃ§Ã£o
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanÃ§as (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+**Dica:** Use Claude Code ou GitHub Copilot para acelerar o desenvolvimento!
+
+## ðŸ“„ LicenÃ§a
+
+Este projeto estÃ¡ sob a licenÃ§a MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
+## ðŸ™ Agradecimentos
+
+- [whatsapp-web.js](https://wwebjs.dev/) - Biblioteca para integraÃ§Ã£o com WhatsApp
+- [OpenAI](https://openai.com/) - API de inteligÃªncia artificial
+- [qrcode-terminal](https://www.npmjs.com/package/qrcode-terminal) - GeraÃ§Ã£o de QR Code no terminal
+
+## ðŸ“ž Suporte
+
+Para suporte, abra uma issue no GitHub ou entre em contato:
+
+- **GitHub Issues**: [Link para issues]
+- **Email**: suporte@agentkit.com.br
+- **Discord**: [Link do servidor]
+
+---
+
+**Desenvolvido com â¤ï¸ pela equipe AgentKit**
+
+---
+
+Projeto adaptado da comunidade INEMA TDS - Marca Arckhe
