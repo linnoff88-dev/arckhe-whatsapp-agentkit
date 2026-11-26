@@ -24,7 +24,7 @@ Bot do WhatsApp com IA da OpenAI usando a biblioteca [whatsapp-web.js](https://w
 
 1. **Clone o repositêÂ³rio:**
 ```bash
-git clone https://github.com/inematds/whatsapp-agentkit
+git clone https://github.com/linnoff88-dev/whatsapp-agentkit
 cd whatsapp-agentkit
 ```
 

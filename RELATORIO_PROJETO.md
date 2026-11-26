@@ -3,7 +3,7 @@
 **Data:** 13 de Outubro de 2025
 **Versêo:** 1.0.0
 **Autor:** AgentKit Team
-**Repositório:** [github.com/inematds/whatsapp-agentkit](https://github.com/inematds/whatsapp-agentkit)
+**Repositório:** [github.com/linnoff88-dev/whatsapp-agentkit](https://github.com/linnoff88-dev/whatsapp-agentkit)
 
 ---
 
@@ -631,9 +631,9 @@ describe('Bot Tests', () => {
 
 ### Repositório
 
-**GitHub:** [github.com/inematds/whatsapp-agentkit](https://github.com/inematds/whatsapp-agentkit)
+**GitHub:** [github.com/linnoff88-dev/whatsapp-agentkit](https://github.com/linnoff88-dev/whatsapp-agentkit)
 
-**Issues:** [github.com/inematds/whatsapp-agentkit/issues](https://github.com/inematds/whatsapp-agentkit/issues)
+**Issues:** [github.com/linnoff88-dev/whatsapp-agentkit/issues](https://github.com/linnoff88-dev/whatsapp-agentkit/issues)
 
 ### Contribuições
 
