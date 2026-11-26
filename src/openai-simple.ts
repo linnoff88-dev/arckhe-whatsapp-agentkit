@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 // Carrega variáveis de ambiente
 dotenv.config();
 
-// Configuração do cliente OpenAI
+// Configuraçêo do cliente OpenAI
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -119,7 +119,7 @@ async function runRealChatKitWorkflow(
     }
 
     // Extrai a resposta do workflow
-    let output = "Desculpe, não recebi uma resposta válida.";
+    let output = "Desculpe, nêo recebi uma resposta válida.";
 
     if (data.output) {
       output = String(data.output);
@@ -202,8 +202,8 @@ Regras de comportamento:
 - Seja simpático, prestativo e direto
 - Use emojis quando apropriado para tornar a conversa mais amigável
 - Mantenha respostas concisas (máximo 500 caracteres quando possível)
-- Se não souber algo, admita e ofereça ajuda alternativa
-- Interprete a intenção do usuário e responda adequadamente
+- Se nêo souber algo, admita e ofereça ajuda alternativa
+- Interprete a intençêo do usuário e responda adequadamente
 - Lembre-se do contexto da conversa anterior
 
 Execute o fluxo lógico equivalente ao workflow ${workflowId} de forma natural.`
@@ -241,7 +241,7 @@ Execute o fluxo lógico equivalente ao workflow ${workflowId} de forma natural.`
     const data = await response.json() as any;
 
     // Extrai a resposta do assistente
-    let output = "Desculpe, não recebi uma resposta válida.";
+    let output = "Desculpe, nêo recebi uma resposta válida.";
 
     if (data.choices && data.choices[0]) {
       const choice = data.choices[0];
@@ -279,7 +279,7 @@ Execute o fluxo lógico equivalente ao workflow ${workflowId} de forma natural.`
 }
 
 /**
- * Fallback usando chat completions quando o workflow não está disponível
+ * Fallback usando chat completions quando o workflow nêo está disponível
  */
 async function fallbackToCompletions(
   workflowId: string,
@@ -299,7 +299,7 @@ Contexto da conversa:
 - Contato: ${context?.contactName || 'Usuário'}
 - Plataforma: ${context?.platform || 'whatsapp'}
 - Tipo de mensagem: ${context?.messageType || 'text'}
-- É grupo: ${context?.isGroup ? 'Sim' : 'Não'}
+- É grupo: ${context?.isGroup ? 'Sim' : 'Nêo'}
 - Timestamp: ${context?.timestamp || new Date().toISOString()}
 
 Instruções:
@@ -323,12 +323,12 @@ Instruções:
     });
 
     return {
-      text: response.choices[0]?.message?.content || "Desculpe, não consegui processar sua solicitação.",
+      text: response.choices[0]?.message?.content || "Desculpe, nêo consegui processar sua solicitaçêo.",
       success: true
     };
   } catch (error) {
     return {
-      text: "Desculpe, ocorreu um erro ao processar sua solicitação.",
+      text: "Desculpe, ocorreu um erro ao processar sua solicitaçêo.",
       success: false,
       error: (error as Error).message
     };
@@ -349,7 +349,7 @@ export function clearChatSession(chatId: string): void {
 }
 
 /**
- * Envia uma mensagem para a OpenAI e recebe uma resposta (função simplificada)
+ * Envia uma mensagem para a OpenAI e recebe uma resposta (funçêo simplificada)
  * @param message - Mensagem do usuário
  * @param context - Contexto da conversa
  * @param conversationHistory - Histórico da conversa
@@ -360,13 +360,13 @@ export async function sendMessageToOpenAI(
   context: ConversationContext,
   conversationHistory: ConversationMessage[] = []
 ): Promise<OpenAIResponse> {
-  // Usar o workflow padrão do .env ou fallback
+  // Usar o workflow padrêo do .env ou fallback
   const defaultWorkflowId = process.env.WORKFLOW_ID || "wf_2V0vUNR8UYZ3xM15B9a910586940994955";
   return await runAgentKitWorkflow(defaultWorkflowId, message, context, conversationHistory);
 }
 
 /**
- * Cria um contexto padrão para conversas
+ * Cria um contexto padrêo para conversas
  * @param chatId - ID do chat
  * @param contactName - Nome do contato
  * @param messageType - Tipo da mensagem
@@ -392,7 +392,7 @@ export function createConversationContext(
 /**
  * Limita o histórico de conversa para evitar tokens excessivos
  * @param history - Histórico atual
- * @param maxLength - Tamanho máximo (padrão: 20)
+ * @param maxLength - Tamanho máximo (padrêo: 20)
  * @returns ConversationMessage[]
  */
 export function limitConversationHistory(
@@ -411,20 +411,20 @@ export function limitConversationHistory(
 }
 
 /**
- * Testa a conexão com a OpenAI
+ * Testa a conexêo com a OpenAI
  * @returns Promise<boolean>
  */
 export async function testOpenAIConnection(): Promise<boolean> {
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-4o",
-      messages: [{ role: "user", content: "Teste de conexão" }],
+      messages: [{ role: "user", content: "Teste de conexêo" }],
       max_tokens: 10
     });
 
     return response.choices[0]?.message?.content ? true : false;
   } catch (error) {
-    console.error('Erro ao testar conexão com OpenAI:', error);
+    console.error('Erro ao testar conexêo com OpenAI:', error);
     return false;
   }
 }

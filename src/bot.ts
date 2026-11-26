@@ -32,7 +32,7 @@ const client = new Client({
     }
 });
 
-// Testa a conexão com OpenAI na inicialização
+// Testa a conexêo com OpenAI na inicializaçêo
 let openAIConnected = false;
 
 // Histórico de conversas por chat
@@ -62,7 +62,7 @@ async function processMessage(message: Message): Promise<void> {
 
         // Verifica se a OpenAI está conectada
         if (!openAIConnected) {
-            console.log('🔄 Testando conexão com OpenAI...');
+            console.log('🔄 Testando conexêo com OpenAI...');
             openAIConnected = await testOpenAIConnection();
             if (!openAIConnected) {
                 await message.reply('⚠️ Serviço de IA temporariamente indisponível. Tente novamente em alguns instantes.');
@@ -151,7 +151,7 @@ Simplesmente envie uma mensagem normal e eu responderei usando inteligência art
 
 ✅ Bot ativo e funcionando
 📊 Conversas ativas: ${conversationHistory.size}
-🕐 Última atualização: ${new Date().toLocaleString('pt-BR')}`;
+🕐 Última atualizaçêo: ${new Date().toLocaleString('pt-BR')}`;
 
             await message.reply(statusText);
             return true;
@@ -196,14 +196,14 @@ client.on('qr', (qr) => {
     console.log('   4. Escaneie o QR Code acima\n');
 });
 
-// Evento: Autenticação realizada
+// Evento: Autenticaçêo realizada
 client.on('authenticated', () => {
-    console.log('✅ Autenticação realizada com sucesso!');
+    console.log('✅ Autenticaçêo realizada com sucesso!');
 });
 
-// Evento: Falha na autenticação
+// Evento: Falha na autenticaçêo
 client.on('auth_failure', (msg) => {
-    console.error('❌ Falha na autenticação:', msg);
+    console.error('❌ Falha na autenticaçêo:', msg);
 });
 
 // Evento: Cliente desconectado
@@ -231,7 +231,7 @@ client.on('error', (error) => {
     console.error('❌ Erro no cliente:', error);
 });
 
-// Função para encerrar o bot graciosamente
+// Funçêo para encerrar o bot graciosamente
 process.on('SIGINT', async () => {
     console.log('\n🛑 Encerrando bot...');
     

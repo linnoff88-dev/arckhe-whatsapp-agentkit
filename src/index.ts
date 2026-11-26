@@ -11,4 +11,4 @@
 import './bot';
 
 console.log('🚀 AgentKit WhatsApp Bot iniciado!');
-console.log('📱 Aguardando conexão com WhatsApp...');
+console.log('📱 Aguardando conexêo com WhatsApp...');

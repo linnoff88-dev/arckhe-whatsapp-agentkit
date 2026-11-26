@@ -16,7 +16,7 @@ Instruções:
 - Mantenha respostas concisas (máximo 500 caracteres para WhatsApp)
 - Use emojis ocasionalmente
 - Responda sempre em português brasileiro
-- Se não souber algo, seja honesto
+- Se nêo souber algo, seja honesto
 - Se precisar buscar informações atualizadas, use web search`,
       model: "gpt-4o",
       tools: [
